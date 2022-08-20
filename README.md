@@ -13,3 +13,5 @@
 * routes is for modularizing URL pattern and handler information.
 
 * why need to use context and cancellation in go-fiber controller: https://www.sohamkamani.com/golang/context-cancellation-and-values/
+
+* (API Docs | Postman)[https://www.postman.com/akshayrr27/workspace/akshay-r-r/collection/11715636-64adc057-9fc1-4948-9152-11eeb1558cda?ctx=documentation]
