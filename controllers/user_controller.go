@@ -5,6 +5,7 @@ import (
 	"fiber-api/configs"
 	"fiber-api/models"
 	"fiber-api/responses"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -74,7 +75,7 @@ func CreateUser(c *fiber.Ctx) error {
 			Status:  http.StatusCreated,
 			Success: true,
 			Message: "success",
-			Data:    &fiber.Map{"data": result},
+			Data:    &fiber.Map{"data": result, "id": newUser.Id},
 		})
 }
 
@@ -87,9 +88,11 @@ func GetUserById(c *fiber.Ctx) error {
 
 	// objId is bson type id given by mongodb
 	objId, _ := primitive.ObjectIDFromHex(userId)
+	fmt.Println(objId)
 
 	// checking if id exists = if user exists
-	err := userCollection.FindOne(ctx, bson.M{"id": objId}).Decode(&user)
+	err := userCollection.FindOne(ctx, bson.M{"_id": objId}).Decode(&user)
+	fmt.Println(user)
 
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(
@@ -173,7 +176,7 @@ func EditUserById(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(
 		responses.UserResponse{
 			Status:  http.StatusOK,
-			Success: false,
+			Success: true,
 			Message: "success",
 			Data:    &fiber.Map{"data": updatedUser},
 		})
