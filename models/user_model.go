@@ -9,4 +9,4 @@ type User struct {
 }
 
 // omitempty and validate:"required" to the struct tag to tell Fiber
-// to ignore empty fields and make the field required, respectively.
+// to ignore empty fields and make the field validation required, respectively.

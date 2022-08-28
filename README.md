@@ -15,3 +15,5 @@
 * why need to use context and cancellation in go-fiber controller: https://www.sohamkamani.com/golang/context-cancellation-and-values/
 
 * [REST API Docs | Postman](https://www.postman.com/akshayrr27/workspace/akshay-r-r/collection/11715636-64adc057-9fc1-4948-9152-11eeb1558cda?ctx=documentation)
+
+* Fiber comes with the fiber.Map() method, which is basically a shortcut for map[string]interface{}
